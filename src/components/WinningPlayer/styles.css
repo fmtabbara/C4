@@ -1,0 +1,25 @@
+.winning-player-container {
+  position: absolute;
+  background: rgb(0, 0, 0, 0.4);
+  width: 99vw;
+  height: 99vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.winner-title {
+  font-weight: bold;
+  font-size: 55px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.winner-red span {
+  color: red;
+}
+
+.winner-yellow span {
+  color: yellow;
+}

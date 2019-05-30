@@ -1,0 +1,36 @@
+.players-container {
+  padding: 10px;
+  margin: 10px;
+}
+
+.counter {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  z-index: 1000;
+}
+
+.counter-red {
+  background: red;
+}
+
+.counter-yellow {
+  background: yellow;
+}
+
+.activePlayer {
+  border: 5px solid black;
+}
+
+@media screen and (max-width: 600px) {
+  .players-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .players-container h2 {
+    margin: 10px;
+  }
+}

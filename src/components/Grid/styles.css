@@ -1,0 +1,49 @@
+.grid-wrapper {
+  padding: 15px;
+  border-radius: 25px 25px 0 0;
+  background: blue;
+  display: flex;
+  justify-content: space-evenly;
+  height: 450px;
+  width: 450px;
+  border: 5px solid black;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.cell {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 5px solid black;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.empty-cell {
+  background: rgb(182, 233, 253);
+}
+.red-cell {
+  background: red;
+}
+
+.yellow-cell {
+  background: yellow;
+}
+
+@media screen and (max-width: 600px) {
+  .grid-wrapper {
+    height: 300px;
+    width: 300px;
+  }
+  .cell {
+    width: 35px;
+    height: 35px;
+  }
+}
