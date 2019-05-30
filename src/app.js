@@ -59,8 +59,6 @@ const App = () => {
       ? handlePlayerWin(player)
       : checkHorizontal()
       ? handlePlayerWin(player)
-      : checkDiagonalRight()
-      ? handlePlayerWin(player)
       : ''
   }
   return (
