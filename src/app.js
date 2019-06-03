@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import Grid from "./components/grid/Grid";
+import Grid from "./components/Grid/Grid";
 import Players from "./components/Players/Players";
 import Winner from "./components/WinningPlayer/WinningPlayer";
 import "./styles.css";
