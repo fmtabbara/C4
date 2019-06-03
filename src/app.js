@@ -1,36 +1,36 @@
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
-import Grid from './components/Grid/Grid'
-import Players from './components/Players/Players'
-import Winner from './components/WinningPlayer/WinningPlayer'
-import './styles.css'
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import Grid from "./components/grid/Grid";
+import Players from "./components/Players/Players";
+import Winner from "./components/WinningPlayer/WinningPlayer";
+import "./styles.css";
 
 const App = () => {
-  const [player, handlePlayer] = useState('red')
+  const [player, handlePlayer] = useState("red");
 
-  const [playerWin, handlePlayerWin] = useState(false)
+  const [playerWin, handlePlayerWin] = useState(false);
 
-  const [resetGrid, handleResetGrid] = useState(false)
+  const [resetGrid, handleResetGrid] = useState(false);
 
   const switchPlayer = player => {
-    player === 'red' ? handlePlayer('yellow') : handlePlayer('red')
-  }
+    player === "red" ? handlePlayer("yellow") : handlePlayer("red");
+  };
 
   const reset = () => {
-    handlePlayerWin(false)
-    handleResetGrid(true)
-  }
+    handlePlayerWin(false);
+    handleResetGrid(true);
+  };
 
-  const resetGame = () => handleResetGrid(false)
+  const resetGame = () => handleResetGrid(false);
 
   const checkWin = (player, grid, x, y) => {
     const checkVertical = () =>
-      grid[x][y] === grid[x][y + 1] &&
-      grid[x][y] === grid[x][y + 2] &&
-      grid[x][y] === grid[x][y + 3]
+      grid[x][y + 1] === player &&
+      grid[x][y + 2] === player &&
+      grid[x][y + 3] === player;
 
     const checkHorizontal = () => {
-      let win = false
+      let win = false;
       for (let i = 0; i < 4; i++) {
         if (
           grid[i][y] === player &&
@@ -38,32 +38,59 @@ const App = () => {
           grid[i + 2][y] === player &&
           grid[i + 3][y] === player
         ) {
-          win = true
+          win = true;
         }
       }
-      return win
-    }
+      return win;
+    };
 
     const checkDiagonalRight = () => {
-      let win = false
-      while (i) {}
+      let win = false;
+      for (let i = 5; i > 2; i--) {
+        for (let j = 0; j < 4; j++) {
+          if (
+            grid[j][i] === player &&
+            grid[j + 1][i - 1] === player &&
+            grid[j + 2][i - 2] === player &&
+            grid[j + 3][i - 3] === player
+          ) {
+            win = true;
+          }
+        }
+      }
+      return win;
+    };
 
-      console.log(
-        grid[0][3] === player &&
-          grid[0 + 1][3 - 1] === player &&
-          grid[0 + 2][3 - 2] === player &&
-          grid[0 + 3][3 - 3] === player
-      )
-    }
+    const checkDiagonalLeft = () => {
+      let win = false;
+      for (let i = 5; i > 2; i--) {
+        for (let j = 6; j > 2; j--) {
+          if (
+            grid[j][i] === player &&
+            grid[j - 1][i - 1] === player &&
+            grid[j - 2][i - 2] === player &&
+            grid[j - 3][i - 3] === player
+          ) {
+            win = true;
+          }
+        }
+      }
+      return win;
+    };
+
     checkVertical()
       ? handlePlayerWin(player)
       : checkHorizontal()
       ? handlePlayerWin(player)
-      : ''
-  }
+      : checkDiagonalRight()
+      ? handlePlayerWin(player)
+      : checkDiagonalLeft()
+      ? handlePlayerWin(player)
+      : "";
+  };
   return (
     <div className="App">
-      {playerWin ? <Winner playerWin={playerWin} resetGrid={reset} /> : ''}
+      {playerWin ? <Winner playerWin={playerWin} resetGrid={reset} /> : ""}
       <Players player={player} />
       <Grid
         switchPlayer={switchPlayer}
@@ -73,8 +100,8 @@ const App = () => {
         resetGame={resetGame}
       />
     </div>
-  )
-}
+  );
+};
 
-const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);

@@ -18,7 +18,7 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
-  background: rgb(182, 233, 253);
+  background: linear-gradient(rgba(32, 200, 206, 0.562), rgba(157, 248, 255, 0.582));
 }
 
 @media screen and (max-width: 600px) {

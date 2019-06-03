@@ -5,7 +5,6 @@ import './styles.css'
 const Players = ({ player }) => {
   return (
     <div className="players-container">
-      <h2>Red</h2>
       <span
         className={classNames(
           { activePlayer: player === 'red' },
@@ -13,7 +12,6 @@ const Players = ({ player }) => {
           'counter-red'
         )}
       />
-      <h2>Yellow</h2>
       <span
         className={classNames(
           { activePlayer: player === 'yellow' },

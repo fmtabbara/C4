@@ -4,9 +4,11 @@
 }
 
 .counter {
+  padding:5px;
+  margin:15px 5px;
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
   z-index: 1000;
 }
@@ -26,11 +28,9 @@
 @media screen and (max-width: 600px) {
   .players-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
-
-  .players-container h2 {
-    margin: 10px;
+  .counter {
+    width: 35px;
+    height: 35px;
   }
 }
